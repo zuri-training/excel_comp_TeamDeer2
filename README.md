@@ -18,20 +18,22 @@ The "excel_comp" is a platform that helps users to upload and compare the conten
 - Install  express
 - Install nodemailer
 - Install uuid
+- read-excel-file
 
 
 ## Usage
-how to use ComPareXL
+how to use excel_comp
 
 ## Credits
-Developers
+- Developers
 - https://github.com/oabdulhamid
 - https://github.com/Amikacin
 - https://github.com/mcsally1
 - https://github.com/oliveokakpu
 - https://github.com/success96
 - https://github.com/Alade-dev
-Designers
+
+- Designers
 - https://github.com/TommmyAyandele
 - https://github.com/Malikthedsigner
 - https://github.com/marie1029
