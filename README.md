@@ -2,7 +2,7 @@
 Platform that compares excel files
 
 ## Description
-Over time their has been the challenge of comparing two files manually, as this poses to be cumbersome and prone to errors. Hence the need to build an "excel_comp" to solve this problem. 
+Over time there has been the challenge of comparing two files manually, as this poses to be cumbersome and prone to errors. Hence the need to build an "excel_comp" to solve this problem. 
 
 The "excel_comp" is a platform that helps users to upload and compare the content of excel files. This platform allows all users (authenticated and unauthenticated) users to visit the platform, view and interact with the documentation. However, it allows only authenticated users to have full access to every function on the platform such as uploading CSV/EXCEL files, saving files and downloading files, etc.
 
