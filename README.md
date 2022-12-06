@@ -14,7 +14,7 @@ The "excel_comp" is a platform that helps users to upload and compare the conten
  - next steps
 
 ## Installation
-- Install node mon
+- Install nodemon
 - Install  express
 - Install nodemailer
 - Install uuid
