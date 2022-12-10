@@ -1,25 +1,28 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
+const mongoose = require("mongoose");
+
+require("dotenv").config({ path: __dirname + "/.env" });
+const { PORT, MONGO_URI } = process.env;
 
 // home route
 const homeRouter = require("./routes/homeRouter");
 const User = require("./models/userModel");
 
-
-
 app.use("/", homeRouter);
 
-// starting server
-app.listen(4000, () => {
-  console.log("Server is listening on port 4000.");
-});
+// Connecting DB and starting server!
+const dbURI = MONGO_URI;
 
-    console.log('Server is listening on port 4000.');
-})
-
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
-    console.log("Connected to db!");
-    app.listen(3000, () => console.log("Server Up and running"));
-});
+mongoose
+  .connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then((result) => {
+    console.log(`Server Up and running and listening on port ${PORT}!`);
+    app.listen(PORT);
+  })
+  .catch((err) => console.log(err));
