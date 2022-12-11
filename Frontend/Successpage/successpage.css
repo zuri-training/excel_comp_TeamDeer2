@@ -1,0 +1,37 @@
+
+body{
+    margin: o;
+    height: 100vh;
+    width: auto;
+}
+.error_image{
+ text-align: center;
+}
+.error_image h3 {
+    font-size: 45px;
+    line-height: 42px;
+}
+ .error_image p{
+    font-size: 30px;
+    line-height: 40px;
+ }
+ .error_btn{
+    text-align: center;
+    margin: 10px 5px;
+ }
+ .try_again{
+    background-color:#358600 ;
+    width: 570px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin: 20px 1px;
+ }
+ .dashboard{
+    width: 570px;
+    border: 1px solid #358600 ;
+    border-radius: 10px;
+    color:#358600 ;
+    margin: 20px 1px;
+   
+ }
