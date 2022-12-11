@@ -1,0 +1,136 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  /* background: #f5f5f5; */
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+h2 {
+  color: #555555;
+  font-family: "Segoe UI";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  padding-bottom: 40px;
+}
+p {
+  text-align: center;
+  color: #555555;
+}
+
+.left-side {
+  flex: 1;
+  text-align: center;
+}
+input {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  width: 60%;
+  padding: 10px;
+  border: none;
+  font-family: "Segoe UI";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+}
+.btn-1 {
+  width: 64%;
+  padding: 16px;
+  background-color: #358600;
+  color: #fdfdfd;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+}
+.google-icon {
+  float: left;
+  padding: 10px;
+}
+
+.btn-2 {
+  width: 50%;
+  border: none;
+}
+.right-side {
+  flex: 1;
+}
+
+.site {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 50px;
+}
+.media-h3,
+.media-p,
+.media-btn2,
+.media-p1 {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  body {
+    background-color: #fdfdfd;
+  }
+  .right-side {
+    display: none;
+  }
+  input {
+    width: 100%;
+  }
+  .btn-1 {
+    width: 105%;
+  }
+  h2,
+  .btn-2,
+  .p-tags {
+    display: none;
+  }
+  .media-h3,
+  .media-btn2 {
+    display: inline;
+    margin-top: 80px;
+    border: none;
+    background-color: #fdfdfd;
+  }
+  .media-p,
+  .media-p1 {
+    display: inline;
+  }
+  .login {
+    font-size: 32px;
+  }
+  .media-p {
+    float: right;
+  }
+  .media-btn2 {
+    width: 50%;
+  }
+  .btn1 {
+    padding-bottom: 20px;
+  }
+  .register {
+    color: #358600;
+    font-weight: 600px;
+  }
+  .media-p1 {
+    margin-top: 180px;
+  }
+}
