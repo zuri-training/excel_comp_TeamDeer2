@@ -3,7 +3,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
   /* background: #f5f5f5; */
 }
@@ -17,7 +17,7 @@ html {
 }
 h2 {
   color: #555555;
-  font-family: "Segoe UI";
+  font-family: 'Segoe UI';
   font-style: normal;
   font-weight: 600;
   font-size: 40px;
@@ -26,6 +26,23 @@ h2 {
 p {
   text-align: center;
   color: #555555;
+}
+.register1 {
+  cursor: pointer;
+  color: #358600;
+}
+.register1:hover {
+  text-decoration: underline;
+}
+.normal-p {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 58%;
+  cursor: pointer;
+}
+.normal-p:hover {
+  text-decoration: underline;
 }
 
 .left-side {
@@ -39,7 +56,7 @@ input {
   width: 60%;
   padding: 10px;
   border: none;
-  font-family: "Segoe UI";
+  font-family: 'Segoe UI';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
@@ -53,6 +70,7 @@ input {
   font-weight: 700;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
 }
 .google-icon {
   float: left;
@@ -100,7 +118,8 @@ input {
   }
   h2,
   .btn-2,
-  .p-tags {
+  .p-tags,
+  .normal-p {
     display: none;
   }
   .media-h3,
@@ -119,6 +138,7 @@ input {
   }
   .media-p {
     float: right;
+    cursor: pointer;
   }
   .media-btn2 {
     width: 50%;
@@ -129,6 +149,7 @@ input {
   .register {
     color: #358600;
     font-weight: 600px;
+    cursor: pointer;
   }
   .media-p1 {
     margin-top: 180px;
