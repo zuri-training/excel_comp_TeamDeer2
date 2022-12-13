@@ -1,46 +1,53 @@
-const express = require('express');
+const express = require("express");
 
-const bcrypt = require('bcrypt'); //password handler
+const bcrypt = require("bcrypt"); //password handler
+
+const jwt = require("jsonwebtoken"); //jwt for authentication
+const maxAge = 3 * 24 * 60 * 60;
 
 //call mongodb user model
-const User = require('../models/userModel');
+const User = require("../models/userModel");
 
 const userRouter = express();
 
-userRouter.post('/signup', (req, res) => {
+const createToken = (id) => {
+  return jwt.sign({ id }, "excel_comp_teandeer2");
+};
+
+userRouter.post("/signup", (req, res) => {
   let { fullName, email, password } = req.body;
   fullName = fullName.trim();
 
   email = email.trim();
   password = password.trim();
 
-  if (fullName == '' || email == '' || password == '') {
+  if (fullName == "" || email == "" || password == "") {
     res.json({
-      status: 'FAILED',
-      message: 'Please fill all the fields',
+      status: "FAILED",
+      message: "Please fill all the fields",
     });
   } else if (!/^[a-zA-Z ]*$/.test(fullName)) {
     res.json({
-      status: 'FAILED',
-      message: 'Invalid name entered',
+      status: "FAILED",
+      message: "Invalid name entered",
     });
   } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
     res.json({
-      status: 'FAILED',
-      message: 'Invalid email entered',
+      status: "FAILED",
+      message: "Invalid email entered",
     });
   } else if (password.length < 6) {
     res.json({
-      status: 'FAILED',
-      message: 'Password must be atleast 6 characters',
+      status: "FAILED",
+      message: "Password must be atleast 6 characters",
     });
   } else {
     User.findOne({ email: req.body.email })
       .then((user) => {
         if (user) {
           res.json({
-            status: 'FAILED',
-            message: 'Email already exists',
+            status: "FAILED",
+            message: "Email already exists",
           });
         } else {
           // Create a new user
@@ -59,24 +66,24 @@ userRouter.post('/signup', (req, res) => {
               newUser
                 .save()
                 .then((result) => {
-                  res.json({
-                    status: 'SUCCESS',
-                    message: 'User Signup successfully',
+                  res.status(200).json({
+                    status: "SUCCESS",
+                    message: "User Signup successfully",
                     user: result,
                   });
                 })
                 .catch((err) => {
                   res.json({
-                    status: 'FAILED',
-                    message: 'An error occurred while saving user',
+                    status: "FAILED",
+                    message: "An error occurred while saving user",
                   });
                 });
             })
             .catch((err) => {
               console.log(err);
               res.json({
-                status: 'FAILED',
-                message: 'An error occurred while hashing password',
+                status: "FAILED",
+                message: "An error occurred while hashing password",
               });
             });
         }
@@ -84,23 +91,23 @@ userRouter.post('/signup', (req, res) => {
       .catch((err) => {
         console.log(err);
         res.json({
-          status: 'FAILED',
-          message: 'An error occurred while checking for user existence',
+          status: "FAILED",
+          message: "An error occurred while checking for user existence",
         });
       });
   }
 });
 
-userRouter.post('/login', (req, res) => {
+userRouter.post("/login", (req, res) => {
   let { email, password } = req.body;
 
   email = email.trim();
   password = password.trim();
 
-  if (email == '' || password == '') {
+  if (email == "" || password == "") {
     res.json({
-      status: 'FAILED',
-      message: 'Please enter credentials',
+      status: "FAILED",
+      message: "Please enter credentials",
     });
   } else {
     //check user existence
@@ -112,38 +119,45 @@ userRouter.post('/login', (req, res) => {
             .compare(password, hashedPassword)
             .then((user) => {
               if (user) {
+                //send a web token to verify if user is logged in during subsequent request from the same user
+                const token = createToken(data[0]._id);
+                res.cookie("jwt", token, {
+                  httpOnly: true,
+                  maxAge: maxAge * 1000,
+                });
+
                 //password matched
-                res.json({
-                  status: 'SUCCESS',
-                  message: 'Login Successful',
+                res.status(200).json({
+                  status: "SUCCESS",
+                  message: "Login Successful",
                   user: data,
                 });
               } else {
-                res.json({
-                  status: 'FAILED',
-                  message: 'Invalid password entered!',
+                res.status(400).json({
+                  status: "FAILED",
+                  message: "Invalid password entered!",
                 });
               }
             })
             .catch((err) => {
-              console.log(err);
-              res.json({
-                status: 'FAILED',
-                message: 'An error occurred while comparing password',
+              console.log(err.message);
+              res.status(400).json({
+                status: "FAILED",
+                message: "An error occurred while comparing password",
               });
             });
         } else {
-          res.json({
-            status: 'FAILED',
-            message: 'Invalid Credentials entered',
+          res.status(400).json({
+            status: "FAILED",
+            message: "Invalid Credentials entered",
           });
         }
       })
       .catch((err) => {
         console.log(err);
-        res.json({
-          status: 'FAILED',
-          message: 'An error occurred while comparing credentials',
+        res.status(400).json({
+          status: "FAILED",
+          message: "An error occurred while comparing credentials",
         });
       });
   }

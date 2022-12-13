@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cookieParser = require("cookie-parser");
 
 //MONGODB
 require("./config/db");
@@ -7,6 +8,9 @@ require("./config/db");
 //accepting post from  data
 const bodyparser = require("express").json;
 app.use(bodyparser());
+
+//middleware to parse cookies
+app.use(cookieParser());
 
 //user routes
 const userRouter = require("./controllers/userController");
