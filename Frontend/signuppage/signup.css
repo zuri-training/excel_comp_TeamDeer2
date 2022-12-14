@@ -1,83 +1,96 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-image: url("../assets/images/signup_background.png");
-    width: auto;
-  }
-  .logo {
-    margin: 20px;
-    padding: 20px 0 0 40px;
-  }
-  .signup_container {
-    text-align: center;
-    width: auto;
-    margin-left: 50px;
-    padding-left: 20px;
-  }
-  
-  .signup_header {
-    color: #eeeeee;
-    margin: 10px;
-    margin-bottom: 40px;
-    padding: 30px;
-  }
-  .signup_header h2 {
-    font-size: 48px;
-    line-height: 67px;
-  }
-  .signup_header h5 {
-    font-size: 24px;
-    line-height: 38px;
-  }
-  
-  .form_items {
-    margin: 20px;
-    padding: 2px 1px 5px 30px;
-  }
-  .form_items input {
-    width: 280px;
-    padding: 15px;
-    background-color: #eeeeee;
-    color: #b0b0b0;
-    border-radius: 10px;
-    border: none;
-  }
-  .Register {
-    margin: 30px 0 20px 20px;
-  }
-  .Register button {
-    width: 280px;
-    padding: 15px;
-    background-color: #358600;
-    color: #eeeeee;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 20px;
-  }
-  .Register p,
-  a {
-    color: #eeeeee;
-    padding: 10px 0;
-    line-height: 50px;
-    text-decoration: none;
-  }
-  .google_btn {
-    width: 220px;
-    padding: 15px;
-    background-color: transparent;
-    color: #eeeeee;
-    border-radius: 10px;
-    border: 1px solid #eeeeee;
-    margin-bottom: 20px;
-  }
-  .google_btn button {
-    padding-top: 20px;
-    align-items: center;
-  }
-  .google_btn img {
-    padding-right: 15px;
-  }
-  
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../assets/images/signup_background.png');
+  height: 80%;
+}
+.logo {
+  margin-bottom: 10px;
+  padding: 20px 0 0 40px;
+}
+.signup_container {
+  text-align: center;
+  width: auto;
+  margin-top: 2px;
+  margin-left: 50px;
+  padding-left: 20px;
+}
+
+.signup_header {
+  align-items: center;
+  color: #eeeeee;
+  margin: 10px;
+  margin-bottom: 40px;
+  padding: 30px;
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 140%;
+  margin-top: 2px;
+}
+.signup_header h2 {
+  font-size: 48px;
+  line-height: 67px;
+  margin-top: 2px;
+}
+.signup_header h5 {
+  font-size: 24px;
+  line-height: 38px;
+}
+
+.form_items {
+  margin: 20px;
+  padding: 2px 1px 5px 30px;
+}
+
+.form_items input {
+  width: 280px;
+  padding: 15px;
+  background-color: #eeeeee;
+  color: #b0b0b0;
+  border-radius: 10px;
+  border: none;
+}
+.Register {
+  margin: 30px 0 20px 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+}
+.Register button {
+  width: 280px;
+  padding: 15px;
+  background-color: #358600;
+  color: #eeeeee;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.Register button:active {
+  width: 280px;
+  padding: 15px;
+  background-color: #eeeeee;
+  color: #358600;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.Register p,
+a {
+  color: #eeeeee;
+  padding: 10px 0;
+  line-height: 50px;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+}
+.Register a:active {
+  text-decoration: underline;
+}
