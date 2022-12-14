@@ -5,6 +5,9 @@ const cookieParser = require("cookie-parser");
 //MONGODB
 require("./config/db");
 
+const { json } = require("express");
+app.use(json({ extended: false }));
+
 //accepting post from  data
 const bodyparser = require("express").json;
 app.use(bodyparser());
