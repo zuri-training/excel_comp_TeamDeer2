@@ -5,6 +5,9 @@ const cookieParser = require("cookie-parser");
 //MONGODB
 require("./config/db");
 
+const { json } = require("express");
+app.use(json({ extended: false }));
+
 //accepting post from  data
 const bodyparser = require("express").json;
 app.use(bodyparser());
@@ -17,15 +20,6 @@ const userRouter = require("./controllers/userController");
 
 // home route
 const homeRouter = require("./routes/homeRouter");
-<<<<<<< HEAD
-//const userRouter = require("./routes/userRouter");
-
-app.use("/", homeRouter);
-//app.use("/users", userRouter);
-// starting server
-app.listen(4000, () => {
-  console.log("Server is listening on port 4000.");
-=======
 
 app.use("/", homeRouter);
 app.use("/user", userRouter);
@@ -36,5 +30,4 @@ const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
->>>>>>> main
 });
