@@ -14,11 +14,36 @@ const userRouter = express();
 
 //function to create token
 const createToken = (id) => {
-  return jwt.sign({ id }, "excel_comp_teandeer2");
+  return jwt.sign({ id }, "excel_comp_teamdeer2");
 };
 
 //mailService
 const { trans } = require("./mailService");
+
+//auth middleware for protected routes
+const requireAuth = (req, res, next) => {
+  const token = req.cookies.jwt;
+  //check jwt exists and verify
+
+  if (token) {
+    jwt.verify(token, "excel_comp_teamdeer2", (err, decodedToken) => {
+      if (err) {
+        console.log(err.message);
+        res.status(400).json({
+          message: "Invalid user!",
+        });
+      } else {
+        console.log(decodedToken);
+        next();
+      }
+    });
+  } else {
+    //redirect user
+    res.status(400).json({
+      message: "You have to be loggedin to change your password",
+    });
+  }
+};
 
 userRouter.post("/signup", (req, res) => {
   let { fullName, email, password } = req.body;
@@ -320,6 +345,94 @@ userRouter.post("/setNewPassword", async (req, res) => {
       });
 
     //if not found then token is invalid
+  } catch (error) {
+    console.log(error.message);
+    res.status(400).json({
+      message: "An error was Encountered",
+    });
+  }
+});
+
+userRouter.post("/changePassword", requireAuth, async (req, res) => {
+  //user must be logged in, hence request must contain jwt in the cookies
+  // res.status(500).json({
+  //   message: "You are permitted to change your password",
+  // });
+  //req must also contain email, old password, newpassword, confirm newPassword
+
+  let { email, oldPassword, newPassword, confirmNewPassword } = req.body;
+
+  email = email.trim();
+  oldPassword = oldPassword.trim();
+  newPassword = newPassword.trim();
+  confirmNewPassword = confirmNewPassword.trim();
+
+  //validate user input
+  if (
+    email == "" ||
+    oldPassword == "" ||
+    newPassword == "" ||
+    confirmNewPassword == ""
+  ) {
+    res.status(400).json({
+      status: "FAILED",
+      message: "Please enter credentials",
+    });
+  } else if (newPassword.length < 6) {
+    res.json({
+      status: "FAILED",
+      message: "Password must be atleast 6 characters",
+    });
+  } else if (confirmNewPassword !== newPassword) {
+    res.status(400).json({
+      message: "Passwords do not match",
+    });
+  }
+
+  try {
+    //finduser by mail
+    const user = await User.findOne({ email });
+    const hashedPassword = user.password;
+
+    //Hash new password
+    const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+
+    //validate old password
+    bcrypt
+      .compare(oldPassword, hashedPassword)
+      .then((data) => {
+        if (data) {
+          user.password = hashedNewPassword;
+          console.log(user);
+          user
+            .save()
+            .then((result) => {
+              res.status(200).json({
+                status: "SUCCESS",
+                message: "Password Changed successfully",
+                user: result,
+              });
+            })
+            .catch((err) => {
+              res.status(400).json({
+                status: "FAILED",
+                message: "An error occurred while changing password",
+              });
+            });
+        } else {
+          //when token is not valid
+          res.status(400).json({
+            status: "FAILED",
+            message: "An error was encountered!",
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err.message);
+        res.status(400).json({
+          message: "Invalid Token",
+        });
+      });
   } catch (error) {
     console.log(error.message);
     res.status(400).json({
