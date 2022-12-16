@@ -16,13 +16,17 @@ app.use(bodyparser());
 app.use(cookieParser());
 
 //user routes
-const userRouter = require("./controllers/userController");
+const { userRouter } = require("./controllers/userController");
 
 // home route
 const homeRouter = require("./routes/homeRouter");
 
+//file routes
+const fileRouter = require("./routes/fileRouter");
+
 app.use("/", homeRouter);
 app.use("/user", userRouter);
+app.use("/file", fileRouter);
 
 // // Connecting DB and starting server!
 // const dbURI = MONGO_URI;
