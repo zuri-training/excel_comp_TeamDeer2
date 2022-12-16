@@ -1,0 +1,152 @@
+*{
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+body{
+    background-color: #DADADA;
+    padding: auto;
+}
+
+header {
+ background-color: #F4F4F4;
+}
+
+#main-container {
+    background-color: #F4F4F4;
+    /* height: 2253px; */
+}
+
+.section-1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 20px;
+}
+
+aside {
+    margin-top: 50px;
+    color: #78AE54;
+}
+aside ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+aside ul li a, aside ul li a img {
+    /* border: 1px solid #78AE54; */
+    color: #78AE54;
+}
+aside ul li a {
+    margin-left: 10px;
+    padding: 0px;
+}
+
+#logout img {
+    border: 1px solid #78AE54;
+    color: red;
+}
+
+aside ul #logout {
+    margin-top: 60px;
+    color: red;
+}
+.section-a {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.get-div h2{
+    color: black;
+    margin-bottom: 30px; 
+    margin-top: -26px;  
+}
+#quick-div  {
+    margin-top: 48px;
+    margin-bottom: 15px;
+}
+#tip-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: #C0D9B0;
+    border: 1px solid #78AE54;
+    border-radius: 3px;
+}
+#par-tip {
+    font-family: Segoe UI;
+    font-style: normal;
+    color: black;
+    font-size: 12px;
+    height: 60px;
+}
+#man-img {
+    position: absolute;
+    width: 260px;
+    left: 600px;
+    top: 246px;
+}
+.section-2 {
+    background-color: #FFFFFF;
+    padding-bottom: 30px;
+}
+.section-b {
+    margin-top: 20px;
+    margin-left: 220px;
+    font-weight: 600px;
+    font-family: Segoe UI;
+    font-size: 12px;
+    line-height: 160%;
+    font-style: normal;
+    color: #353535;
+}
+.section-b h2 {
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+.section-3 {
+    margin-left: 220px;
+    font-weight: 600px;
+    font-family: Segoe UI;
+    font-size: 12px;
+    line-height: 160%;
+    font-style: normal;
+    color: #555555;
+}
+.section-3 h2 {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.section-3 p{
+    padding-bottom: 40px;
+}
+#footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: 1px solid #78AE54;
+}
+#footer img {
+    position: absolute;
+    color: #78AE54;
+}
+#footer h5 {
+    margin-right: 30px;
+    font-size: 8px;
+}
+#footer h3 {
+    margin-right: 30px;
+    font-size: 12px;
+    background-color: #F4F4F4;
+}
