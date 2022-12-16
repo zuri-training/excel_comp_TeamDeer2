@@ -4,13 +4,17 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main {
   display: flex;
 }
-.logo{
-    width: 100%;
-   margin-top: 40px;
+.logo {
+  width: 95%;
+  margin-top: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 aside {
   position: relative;
@@ -32,7 +36,6 @@ ul {
 
 li {
   padding-bottom: 20px;
-  
 }
 
 li,
@@ -42,18 +45,167 @@ a {
   margin: 5px;
   text-decoration: none;
   margin: 40px 0;
+  font-family: "Segoe UI";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
 }
 .logout {
   position: absolute;
-bottom: -50px;
+  bottom: -50px;
   color: #fe1f1f;
   font-weight: bold;
   margin: 40px 15px;
 }
-.icon{
-    margin-right: 10px;
-    margin-bottom: -5px;
+.icon {
+  margin-right: 10px;
+  margin-bottom: -5px;
 }
-.icon5{
-    margin-top: 5 0px;
+.icon5 {
+  margin-top: 50px;
+}
+.file-image-creation {
+  border: 1px solid #8b8b8b;
+  border-radius: 4px;
+}
+.file-image {
+  padding: 10px 10px 0 10px;
+}
+
+.file-image-data {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.date {
+  font-size: 10px;
+  font-weight: 400;
+}
+.file-text {
+  font-size: 12px;
+  font-weight: 600;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  border: 1px solid #358600;
+  border-radius: 10px;
+  padding: 50px;
+}
+.grid-item {
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+
+.dropbtn {
+
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.menu{
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.status-bar{
+  display: none;
+}
+
+/* For media query */
+
+@media screen and (max-width: 480px ) {
+
+  .status-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+  }
+
+  .grid-item {
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+  }
+aside, .logo, .grid-container{
+  display: none;
+}
+
+.grid-container, .media{
+  display: grid;
+    grid-template-columns: auto auto;
+    border-radius: 10px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+footer{
+  text-align: center;
+  background-color: #358600;
+}
+}
+@media screen and (max-width: 820px) and (min-width: 481px){
+  .status-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+  }
+
+  .grid-item {
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+        justify-content: center;
+  }
+aside, .logo, .grid-container{
+  display: none;
+}
+
+.grid-container, .media{
+  display: grid;
+    grid-template-columns: auto auto auto;
+    border-radius: 10px;
+    padding: 5px;
+       margin-left: 10px;
+}
 }
