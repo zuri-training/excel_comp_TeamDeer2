@@ -23,14 +23,18 @@
             </p>
           </div>
           <div class="left-layout">
-            <form>
+            <form
+              onsubmit="return validateForm()"
+              action="../confirmpasswordpage/confirmpassword.html"
+            >
               <input
                 type="email"
                 id="email"
                 placeholder="Enter Email Address"
+                required
               /><br />
 
-              <button class="btn-1">Reset Password</button>
+              <a href="#"><input type="submit" value="Reset Password" id="btn-1" class="btn-1" /></a>
             </form>
             <p class="p2">
               Password recovery instructions will be sent to your e-mail, didn't

@@ -5,6 +5,7 @@ html {
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
+  color: black;
   /* background: #f5f5f5; */
 }
 .main {
@@ -15,6 +16,7 @@ html {
   width: 80%;
   padding: 10px;
 }
+
 h2 {
   color: #555555;
   font-family: 'Segoe UI';
@@ -153,5 +155,8 @@ input {
   }
   .media-p1 {
     margin-top: 180px;
+  }
+  .register-p {
+    text-decoration: none;
   }
 }

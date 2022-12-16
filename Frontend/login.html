@@ -22,14 +22,20 @@
             <p>Welcome back, We've missed you</p>
           </div>
 
-          <form>
+          <form action="./dashboard/dashboard.html">
             <input
               type="email"
               id="email"
               placeholder="Enter Email Address"
+              required
             /><br />
 
-            <input type="password" id="password" placeholder="Password" /><br />
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            /><br />
 
             <a href="./Forgot Password/fp.html" target="_blank"
               ><p class="normal-p">Forgot Password?</p></a
@@ -37,21 +43,27 @@
             <a href="./Forgot Password/fp.html" target="_blank"
               ><p class="media-p">Forgot Password?</p></a
             >
-            <button class="btn-1">Login</button>
+            <input class="btn-1" type="submit" value="Login" />
           </form>
           <div class="p-tags">
-            <p>Don't have an account? <b class="register1">Register</b></p>
+            <p>
+              Don't have an account?
+              <a href="./signuppage/signup.html" class="register-p">
+                <span class="register1">Register</span></a
+              >
+            </p>
           </div>
         </div>
         <footer class="media-p1">
-          <p></p>
+          <p>
             Don't have an account?
-            <a href="./signuppage/signup.html"
+            <a href="./signuppage/signup.html" class="register-p"
               ><span class="register">Register</span></a
             >
-            <span class="register">Register</span>
           </p>
+          <!-- <p>Don't have an account? <span class="register">Register</span></p> -->
         </footer>
+
         <div class="right-side">
           <div class="site-img">
             <img class="site" src="images/Rectangle 38.png" alt="site-image" />
