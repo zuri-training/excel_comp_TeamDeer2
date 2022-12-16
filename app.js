@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 // const mongoose = require('mongoose');
 // const dotenv = require('dotenv');
 // dotenv.config();
-MONGODB
+//MONGODB
 require("./config/db");
 
 const { json } = require("express");
@@ -33,13 +33,12 @@ app.use("/user", userRouter);
 app.use("/file", fileRouter);
 
 // Connecting DB and starting server!
-const dbURI = MONGO_URI;
+//const dbURI = MONGO_URI;
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
-
 
 //just added
 
