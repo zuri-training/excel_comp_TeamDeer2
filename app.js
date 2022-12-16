@@ -2,7 +2,11 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 
-//MONGODB
+//just added
+// const mongoose = require('mongoose');
+// const dotenv = require('dotenv');
+// dotenv.config();
+MONGODB
 require("./config/db");
 
 const { json } = require("express");
@@ -24,10 +28,18 @@ const homeRouter = require("./routes/homeRouter");
 app.use("/", homeRouter);
 app.use("/user", userRouter);
 
-// // Connecting DB and starting server!
-// const dbURI = MONGO_URI;
+// Connecting DB and starting server!
+const dbURI = MONGO_URI;
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
+
+
+//just added
+
+// mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+//     console.log("Connected to db!");
+//     app.listen(3000, () => console.log("Server Up and running"));
+// });
