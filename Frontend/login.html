@@ -22,9 +22,14 @@
             <p>Welcome back, We've missed you</p>
           </div>
 
-          <form action="./dashboard/dashboard.html">
+          <form
+            id="login-form"
+            action="./dashboard/dashboard.html"
+            method="post"
+          >
             <input
               type="email"
+              name="email"
               id="email"
               placeholder="Enter Email Address"
               required
@@ -32,6 +37,7 @@
 
             <input
               type="password"
+              name="password"
               id="password"
               placeholder="Password"
               required
@@ -72,4 +78,55 @@
       </div>
     </div>
   </body>
+
+  <script>
+    // Get a reference to the password field
+    const passwordField = document.getElementById('password');
+
+    // Listen for a click event on the password field
+    passwordField.addEventListener('click', function () {
+      // If the type of the password field is "password", change it to "text"
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+      }
+      // Otherwise, the type is "text" so change it to "password"
+      else {
+        passwordField.type = 'password';
+      }
+    });
+
+    // Get the login form
+    const loginForm = document.getElementById('login-form');
+
+    // Handle the form submission
+    loginForm.addEventListener('submit', (e) => {
+      // Prevent the default form submission behavior
+      e.preventDefault();
+
+      // Get the user's login credentials
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Send the login credentials to the backend
+      fetch('http://localhost:3000/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response from the backend
+          if (data) {
+            // Login was successful
+            alert('Login successful!');
+            window.location.href = './dashboard/dashboard.html';
+          } else {
+            // Login failed
+            alert('Login failed. Please try again.');
+          }
+        });
+    });
+  </script>
 </html>

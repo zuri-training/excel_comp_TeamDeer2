@@ -144,7 +144,7 @@ userRouter.post('/login', (req, res) => {
     //check user existence
     User.find({ email: req.body.email })
       .then((data) => {
-        if (data.length) {
+        if (data) {
           const hashedPassword = data[0].password;
           bcrypt
             .compare(password, hashedPassword)
