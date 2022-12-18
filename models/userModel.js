@@ -19,6 +19,10 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  passwordResetToken: {
+    type: String,
+    default: ""
+  }
 });
 
 const User = mongoose.model("User", userSchema);
