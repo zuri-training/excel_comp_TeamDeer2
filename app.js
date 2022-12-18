@@ -5,11 +5,11 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 
 //just added
-// const mongoose = require('mongoose');
-// const dotenv = require('dotenv');
-// dotenv.config();
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 //MONGODB
-require('./config/db');
+// require('./config/db');
 
 const cors = require('cors');
 
@@ -46,15 +46,15 @@ app.use("/user", userRouter);
 
 // // Connecting DB and starting server!
 // const dbURI = MONGO_URI;
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is listening on port ${PORT}`);
+// });
 
 //just added
 
-// mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
-//     console.log("Connected to db!");
-//     app.listen(3000, () => console.log("Server Up and running"));
-// });
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+    console.log("Connected to db!");
+    app.listen(3000, () => console.log("Server Up and running"));
+});
