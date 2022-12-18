@@ -1,0 +1,59 @@
+body,
+html {
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+}
+.logo{
+    width: 100%;
+   margin-top: 40px;
+}
+aside {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 80vh;
+  width: 280px;
+}
+
+.navbar {
+  width: 80%;
+  margin: 0 auto;
+}
+ul {
+  width: 100%;
+  margin: 80px auto;
+  list-style: none;
+}
+
+li {
+  padding-bottom: 20px;
+  
+}
+
+li,
+a {
+  font-size: 14px;
+  color: #358600;
+  margin: 5px;
+  text-decoration: none;
+  margin: 40px 0;
+}
+.logout {
+  position: absolute;
+bottom: -50px;
+  color: #fe1f1f;
+  font-weight: bold;
+  margin: 40px 15px;
+}
+.icon{
+    margin-right: 10px;
+    margin-bottom: -5px;
+}
+.icon5{
+    margin-top: 5 0px;
+}

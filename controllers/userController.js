@@ -403,7 +403,6 @@ userRouter.post('/changePassword', requireAuth, async (req, res) => {
       .then((data) => {
         if (data) {
           user.password = hashedNewPassword;
-          console.log(user);
           user
             .save()
             .then((result) => {
@@ -441,4 +440,4 @@ userRouter.post('/changePassword', requireAuth, async (req, res) => {
   }
 });
 
-module.exports = userRouter;
+module.exports = { userRouter, requireAuth };

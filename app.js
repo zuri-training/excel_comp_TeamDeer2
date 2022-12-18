@@ -4,6 +4,10 @@ const cookieParser = require('cookie-parser');
 
 const path = require('path');
 
+//just added
+// const mongoose = require('mongoose');
+// const dotenv = require('dotenv');
+// dotenv.config();
 //MONGODB
 require('./config/db');
 
@@ -29,7 +33,7 @@ app.set('views', tempelatePath);
 app.use(express.static(publicPath));
 
 //user routes
-const userRouter = require('./controllers/userController');
+const userRouter = require("./controllers/userController");
 
 // home route
 const homeRouter = require('./routes/homeRouter');
@@ -37,17 +41,20 @@ const homeRouter = require('./routes/homeRouter');
 app.use('/', homeRouter);
 app.use('/user', userRouter);
 
-app.get('/signup', (req, res) => {
-  res.sender('signup');
-});
-app.get('/login', (req, res) => {
-  res.sender('login');
-});
+app.use("/", homeRouter);
+app.use("/user", userRouter);
 
 // // Connecting DB and starting server!
 // const dbURI = MONGO_URI;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
+
+//just added
+
+// mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
+//     console.log("Connected to db!");
+//     app.listen(3000, () => console.log("Server Up and running"));
+// });
