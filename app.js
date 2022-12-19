@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 //MONGODB
-// require('./config/db');
+require('./config/db');
 
 const cors = require('cors');
 
@@ -24,13 +24,7 @@ app.use(bodyparser());
 app.use(cookieParser());
 app.use(cors());
 
-// const tempelatePath = path.join(__dirname, '../tempelates');
-// const publicPath = path.join(__dirname, '../public');
-// console.log(publicPath);
 
-// app.set('view engine', 'hbs');
-// app.set('views', tempelatePath);
-// app.use(express.static(publicPath));
 
 //user routes
 const { userRouter } = require('./controllers/userController');
@@ -41,20 +35,14 @@ const homeRouter = require('./routes/homeRouter');
 app.use('/', homeRouter);
 app.use('/user', userRouter);
 
-// app.use("/", homeRouter);
-// app.use("/user", userRouter);
+
 
 // // Connecting DB and starting server!
 // const dbURI = MONGO_URI;
-// const PORT = process.env.PORT;
+const PORT = process.env.PORT;
 
-// app.listen(PORT, () => {
-//   console.log(`Server is listening on port ${PORT}`);
-// });
-
-//just added
-
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
-    console.log("Connected to db!");
-    app.listen(3000, () => console.log("Server Up and running"));
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
+
+

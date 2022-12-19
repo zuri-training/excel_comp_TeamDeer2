@@ -440,5 +440,5 @@ userRouter.post("/changePassword", requireAuth, async (req, res) => {
   }
 });
 
-module.exports = { requireAuth };
-module.exports = userRouter;
+module.exports = { userRouter, requireAuth };
+
