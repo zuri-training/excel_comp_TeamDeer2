@@ -1,37 +1,37 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-
 const path = require("path");
-
-//just added
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-dotenv.config();
+const bodyParser = require("body-parser");
 //MONGODB
 require("./config/db");
-
-const cors = require("cors");
 
 const { json } = require("express");
 app.use(json({ extended: false }));
 
 //accepting post from  data
 const bodyparser = require("express").json;
-app.use(bodyparser());
+app.use(bodyparser({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //middleware to parse cookies
 app.use(cookieParser());
-app.use(cors());
 
 //user routes
-const { userRouter } = require("../Backend/controllers/userController");
+const userRouter = require("./controllers/userController");
 
 // home route
-const homeRouter = require("../Backend/routes/homeRouter");
+const homeRouter = require("./routes/homeRouter");
+
+//file routes
+const fileRouter = require("./routes/fileRouter");
+
+//static folder
+app.use(express.static(path.resolve(__dirname, "public")));
 
 app.use("/", homeRouter);
 app.use("/user", userRouter);
+app.use("/file", fileRouter);
 
 // // Connecting DB and starting server!
 // const dbURI = MONGO_URI;
