@@ -125,7 +125,7 @@
             window.location.href = "./dashboard/dashboard.html";
           } else {
             // Login failed
-            alert("Login failed. Please try again.");
+            alert(`${data?.message || 'Login failed! Please try again'}`);
           }
         });
     });
