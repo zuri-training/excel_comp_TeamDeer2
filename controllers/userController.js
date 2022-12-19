@@ -9,8 +9,7 @@ const nodemailer = require('nodemailer'); //for sending mails
 
 //call mongodb user model
 const User = require('../models/userModel');
-
-const userRouter = express();
+const userRouter = express.Router();
 
 //function to create token
 const createToken = (id) => {

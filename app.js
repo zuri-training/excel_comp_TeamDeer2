@@ -24,16 +24,16 @@ app.use(bodyparser());
 app.use(cookieParser());
 app.use(cors());
 
-const tempelatePath = path.join(__dirname, '../tempelates');
-const publicPath = path.join(__dirname, '../public');
-console.log(publicPath);
+// const tempelatePath = path.join(__dirname, '../tempelates');
+// const publicPath = path.join(__dirname, '../public');
+// console.log(publicPath);
 
-app.set('view engine', 'hbs');
-app.set('views', tempelatePath);
-app.use(express.static(publicPath));
+// app.set('view engine', 'hbs');
+// app.set('views', tempelatePath);
+// app.use(express.static(publicPath));
 
 //user routes
-const userRouter = require("./controllers/userController");
+const { userRouter } = require('./controllers/userController');
 
 // home route
 const homeRouter = require('./routes/homeRouter');
@@ -41,8 +41,8 @@ const homeRouter = require('./routes/homeRouter');
 app.use('/', homeRouter);
 app.use('/user', userRouter);
 
-app.use("/", homeRouter);
-app.use("/user", userRouter);
+// app.use("/", homeRouter);
+// app.use("/user", userRouter);
 
 // // Connecting DB and starting server!
 // const dbURI = MONGO_URI;
