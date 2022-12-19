@@ -72,7 +72,7 @@
         <div class="Register">
           <p>
             Already have an account?
-            <a href="../login.html" class="normal-p">Login</a>
+            <a href="../index.html" class="normal-p">Login</a>
           </p>
         </div>
       </div>
@@ -80,30 +80,30 @@
   </body>
   <script>
     // Get a reference to the password field
-    const passwordField = document.getElementById('password-field');
-    const confirmPasswordField = document.getElementById('confirm-password');
+    const passwordField = document.getElementById("password-field");
+    const confirmPasswordField = document.getElementById("confirm-password");
 
     // Listen for a click event on the password field
-    passwordField.addEventListener('click', function () {
+    passwordField.addEventListener("click", function () {
       // If the type of the password field is "password", change it to "text"
-      if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-        confirmPasswordField.type = 'text';
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+        confirmPasswordField.type = "text";
       }
       // Otherwise, the type is "text" so change it to "password"
       else {
-        passwordField.type = 'password';
-        confirmPasswordField.type = 'password';
+        passwordField.type = "password";
+        confirmPasswordField.type = "password";
       }
     });
 
     function validateForm() {
-      const password = document.getElementById('password-field').value;
-      const confirmPassword = document.getElementById('confirm-password').value;
+      const password = document.getElementById("password-field").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
 
       if (password !== confirmPassword) {
         alert(
-          'The password and confirm password fields do not match. Please try again.'
+          "The password and confirm password fields do not match. Please try again."
         );
         return false;
       }
@@ -111,22 +111,22 @@
       return true;
     }
 
-    const signUpForm = document.getElementById('signup-form');
+    const signUpForm = document.getElementById("signup-form");
 
-    signUpForm.addEventListener('submit', (e) => {
+    signUpForm.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!validateForm()) {
         return false;
       }
-      const fullName = document.getElementById('fullname').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password-field').value;
-      const confirmPassword = document.getElementById('confirm-password').value;
+      const fullName = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password-field").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
 
-      fetch('http://localhost:3000/user/signup', {
-        method: 'POST',
+      fetch("http://localhost:3000/user/signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password, fullName }),
       })
@@ -134,13 +134,13 @@
         .then((data) => {
           // Handle the response from the backend
 
-          if (data.status === 'SUCCESS') {
+          if (data.status === "SUCCESS") {
             // Login was successful
-            alert('Signup successful!');
-            window.location.href = '../dashboard/dashboard.html';
+            alert("Signup successful!");
+            window.location.href = "../dashboard/dashboard.html";
           } else {
             // Login failed
-            alert(`${data?.message || 'signup failed! Please try again'}`);
+            alert(`${data?.message || "signup failed! Please try again"}`);
           }
         });
     });

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Excel Comp</title>
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <!-- This is a login page -->
@@ -119,13 +119,13 @@
         .then((data) => {
           // Handle the response from the backend
 
-          if (data.status === 'SUCCESS') {
+          if (data.status === "SUCCESS") {
             // Login was successful
             alert("Login successful!");
             window.location.href = "./dashboard/dashboard.html";
           } else {
             // Login failed
-            alert(`${data?.message || 'Login failed! Please try again'}`);
+            alert(`${data?.message || "Login failed! Please try again"}`);
           }
         });
     });
