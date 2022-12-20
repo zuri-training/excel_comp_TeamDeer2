@@ -1,23 +1,23 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const cookieParser = require("cookie-parser");
+const cookieParser = require('cookie-parser');
 
-const path = require("path");
+const path = require('path');
 
 //just added
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 dotenv.config();
 //MONGODB
-require("./config/db");
+require('./config/db');
 
-const cors = require("cors");
+const cors = require('cors');
 
-const { json } = require("express");
+const { json } = require('express');
 app.use(json({ extended: false }));
 
 //accepting post from  data
-const bodyparser = require("express").json;
+const bodyparser = require('express').json;
 app.use(bodyparser());
 
 //middleware to parse cookies
@@ -25,13 +25,13 @@ app.use(cookieParser());
 app.use(cors());
 
 //user routes
-const { userRouter } = require("../Backend/controllers/userController");
+const { userRouter } = require('./controllers/userController');
 
 // home route
-const homeRouter = require("../Backend/routes/homeRouter");
+const homeRouter = require('./routes/homeRouter');
 
-app.use("/", homeRouter);
-app.use("/user", userRouter);
+app.use('/', homeRouter);
+app.use('/user', userRouter);
 
 // // Connecting DB and starting server!
 // const dbURI = MONGO_URI;
