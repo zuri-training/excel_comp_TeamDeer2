@@ -20,7 +20,7 @@ const upload = multer({ storage: storage });
 exports.fileUpload = async (req, res) => {
   try {
     upload.single("ExcelTest.xlsx");
-    console.log(req.file);
+    console.log(req.ExcelTest);
     //importExcelData2MongoDB(__dirname + "/uploads/" + req.file.filename);
 
     res.send("File successfully received");

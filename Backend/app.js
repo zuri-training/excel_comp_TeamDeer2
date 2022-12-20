@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //user routes
-const userRouter = require("./controllers/userController");
+const { userRouter } = require("./controllers/userController");
 
 // home route
 const homeRouter = require("./routes/homeRouter");
