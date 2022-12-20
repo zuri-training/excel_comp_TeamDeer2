@@ -242,9 +242,9 @@ userRouter.post("/forgot-password", async (req, res) => {
 
     //if user exists, send mail to the user with token to set new passWord
     let mailOptions = {
-      from: "lfawas6@gmail.com",
+      from: 'teamdeer42@gmail.com',
       to: email,
-      subject: "Excel_comp Password Reset",
+      subject: 'Excel_comp Password Reset',
       text: `This is you Comp_excel reset token ${resetToken}`,
     };
 
