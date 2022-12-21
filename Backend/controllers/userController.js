@@ -39,7 +39,7 @@ const requireAuth = (req, res, next) => {
   } else {
     //redirect user
     res.status(400).json({
-      message: "You have to be logged in to change your password",
+      message: "You have to be logged in to carry out this function",
     });
   }
 };
