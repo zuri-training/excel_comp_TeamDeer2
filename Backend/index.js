@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 //MONGODB
-require('../config/db');
+require('./config/db');
 
 const cors = require('cors');
 
