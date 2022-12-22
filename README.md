@@ -11,6 +11,7 @@ The "excel_comp" is a platform that helps users to upload and compare the conten
  - Architecture issues
  - Stakeholders
  - goals
+ - URL
  - next steps
 
 ## Installation
@@ -18,11 +19,17 @@ The "excel_comp" is a platform that helps users to upload and compare the conten
 - Install  express
 - Install nodemailer
 - Install uuid
-- read-excel-file
+- Install read-excel-file
+- Install bcrypt
+- Install config
+- Install cookie-parser
+- Install cors
+- Install hbs
+- Install jsonwebtoken
 
 
 ## Usage
-how to use excel_comp
+To use excel_comp, click or copy this link "https://excel-comp-team-deer2.vercel.app/" to browser paste and load it. The link load the landing page where you can navigate around to see our services and all. To compare excel files, download or save files then you have to create an account by clicking register to input your details.  
 
 ## Credits
 - Developers
@@ -47,6 +54,10 @@ how to use excel_comp
 
 ## License
 Refer to the one on the repository
+
+## URL
+Hosted fronted url: https://excel-comp-team-deer2.vercel.app/
+Hosted backend url: https://excel-comp-l0cn.onrender.com/ 
 
 ## Features
 - Upload, Highlight duplicate and return a single file
